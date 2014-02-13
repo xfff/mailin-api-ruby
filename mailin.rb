@@ -177,6 +177,9 @@ class Mailin
 	def delete_bounces(start_date,end_date,email)
 		return self.post("bounces",{"start_date"=> start_date,"end_date"=> end_date,"email"=> email}.to_json)
 	end
+  def send_transactional_template(id,to,cc,bcc,attr)
+    return self.put("template/"+id,{"to" => to, "cc" => cc, "bcc" => bcc, "attr" => attr}.to_json)
+  end
 end
 
 
